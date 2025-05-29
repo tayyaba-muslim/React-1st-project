@@ -25,7 +25,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Todo from "./components/Todo/Todo";
 import Home from "./components/Home/Home";
-import { Routes, Route } from "react-router";
+import { Routes, Route, Form } from "react-router";
 import Cardv1Component from "./components/Cards/Cardv1";
 import NotFound from "./components/NotFound/notFound";
 import AboutUs from "./components/About/about";
@@ -43,6 +43,13 @@ function App() {
           <Route path="/*" element={<NotFound />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactUs" element={<ContactUs />} />
+
+          {/* Route groups /prefix (for admin)*/}
+          <Route path ="/products">
+          <Route path="/products/details" element={<Cardv1Component />} />
+          <Route path="/products/create" element={<Form/>} />
+
+          </Route>
         </Routes>
       </main>
       <Footer />
